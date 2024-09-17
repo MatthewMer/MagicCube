@@ -10,7 +10,7 @@
 #include <queue>
 
 #include "ArgParser.h"
-#include "Workers.h"
+#include "Threading.h"
 
 using std::cout;
 using std::vector;
@@ -86,7 +86,7 @@ int main(int argc, char* argv[])
         auto data = vector<size_t>(set_size);
         iota(data.begin(), data.end(), 1);
 
-        Workers::ThreadPool<result_t> pool(32);
+        Threading::ThreadPool<result_t> pool(32);
 
         cout << "Dimension k =\t" << r.k << "\n";
         cout << "Order n =\t" << r.n << "\n";

@@ -24,15 +24,21 @@
     <ClCompile Include="llint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Thread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArgParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Workers.h">
+    <ClInclude Include="Threading.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="llint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Thread.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

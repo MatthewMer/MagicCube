@@ -10,9 +10,11 @@
 #include <tuple>
 #include <condition_variable>
 
-namespace Workers {
+#include "Thread.h"
+
+namespace Threading {
 	namespace {
-		static size_t const MAX_THREAD_COUNT = std::thread::hardware_concurrency() * 2;
+		static size_t const MAX_THREAD_COUNT = std::thread::hardware_concurrency();
 	}
 
 	template<typename T>
@@ -24,7 +26,8 @@ namespace Workers {
 		using callback_t = std::function<void(T&)>;
 		using job_t = std::tuple<promise_t, future_t, function_t, callback_t>;
 		using jobpool_t = std::queue<job_t>;
-		using threadpool_t = std::vector<std::thread>;
+		using thread_t = Thread;
+		using threadpool_t = std::vector<thread_t>;
 
 		ThreadPool();
 		ThreadPool(size_t const& thread_count);
@@ -104,7 +107,7 @@ namespace Workers {
 		m_terminate = false;
 		m_threadPool.resize(m_threadCount);
 		for (size_t i = 0; i < m_threadCount; ++i) {
-			m_threadPool[i] = std::thread(&ThreadPool<T>::Thread, this);
+			m_threadPool[i] = thread_t(&ThreadPool<T>::Thread, this);
 		}
 
 		for (auto& t : m_threadPool) {

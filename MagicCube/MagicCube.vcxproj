@@ -134,11 +134,13 @@
     <ClCompile Include="ArgParser.cpp" />
     <ClCompile Include="llint.cpp" />
     <ClCompile Include="MagicCube.cpp" />
+    <ClCompile Include="Thread.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArgParser.h" />
     <ClInclude Include="llint.h" />
-    <ClInclude Include="Workers.h" />
+    <ClInclude Include="Thread.h" />
+    <ClInclude Include="Threading.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
